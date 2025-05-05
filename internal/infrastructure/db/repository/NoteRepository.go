@@ -28,6 +28,12 @@ func (r *noteRepository) GetByID(id uint) (*models.Note, error) {
 	return &note, err
 }
 
+func (r *noteRepository) GetAllByUserID(userID uint) ([]models.Note, error) {
+	var notes []models.Note
+	err := r.db.Where("user_id =?", userID).Find(&notes).Error
+	return notes, err
+}
+
 func (r *noteRepository) Update(note *models.Note) error {
 	return r.db.Save(note).Error
 }
