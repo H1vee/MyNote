@@ -10,16 +10,22 @@ import (
 type Config struct {
 	Server struct {
 		Host string `yaml:"host"`
-		Port int    `yaml:"port"`
+		Port uint   `yaml:"port"`
 	} `yaml:"server"`
 
 	Database struct {
 		Host     string `yaml:"host"`
-		Port     int    `yaml:"port"`
+		Port     uint   `yaml:"port"`
 		User     string `yaml:"user"`
 		PassWord string `yaml:"password"`
 		Name     string `yaml:"name"`
 	} `yaml:"database"`
+
+	JWT struct {
+		Secret                   string `yaml:"secret"`
+		AccesTokenTTLMinute      uint   `yaml:"acces_token_ttl_minute:"`
+		refresh_token_ttl_minute uint   `yaml:"refresh_token_ttl_minute:"`
+	}
 }
 
 func Load(path string) *Config {
