@@ -22,9 +22,9 @@ type Config struct {
 	} `yaml:"database"`
 
 	JWT struct {
-		Secret                   string `yaml:"secret"`
-		AccesTokenTTLMinute      uint   `yaml:"acces_token_ttl_minute:"`
-		refresh_token_ttl_minute uint   `yaml:"refresh_token_ttl_minute:"`
+		Secret                string `yaml:"secret"`
+		AccesTokenTTLMinute   uint   `yaml:"acces_token_ttl_minute:"`
+		RefreshTokenTTLMinute uint   `yaml:"refresh_token_ttl_minute:"`
 	}
 }
 
